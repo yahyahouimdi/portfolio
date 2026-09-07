@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio personnel de Yahya Houimdi, etudiant en cycle d'ingenieur en informatique" />
+  <meta name="description" content="Portfolio personnel de Yahya Houimdi, ingenieur en IA et Computer Vision" />
   <title>Portfolio | Yahya Houimdi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -160,14 +160,16 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.9rem;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
       font-weight: 600;
       transition: color 0.25s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover,
@@ -225,8 +227,8 @@
 
     .hero h1 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.3rem, 6vw, 4.7rem);
-      line-height: 1.12;
+      font-size: clamp(2.1rem, 5.4vw, 4.2rem);
+      line-height: 1.14;
       margin-bottom: 0.95rem;
     }
 
@@ -301,6 +303,102 @@
       background: var(--surface);
       color: var(--text);
       font-size: 0.93rem;
+    }
+
+    .lang-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .lang-pill {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.88rem;
+      background: var(--surface);
+    }
+
+    .lang-pill strong {
+      color: var(--accent);
+    }
+
+    /* Education */
+    .edu-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .edu-item {
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-item h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-item p {
+      color: var(--muted);
+    }
+
+    .edu-date {
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+      font-size: 0.92rem;
+    }
+
+    /* Experience timeline */
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      padding: 1.3rem 1.4rem;
+      position: relative;
+    }
+
+    .timeline-item .role-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-item h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+    }
+
+    .timeline-item .org {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-item .date {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .timeline-item ul {
+      color: var(--muted);
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.35rem;
     }
 
     .projects-grid {
@@ -406,11 +504,99 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.83rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--accent);
       border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
       flex-shrink: 0;
+      text-align: center;
+    }
+
+    .skills-category {
+      margin-bottom: 1.8rem;
+    }
+
+    .skills-category h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .cert-card {
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+    }
+
+    .cert-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #03251f;
+      background: linear-gradient(150deg, var(--accent), var(--accent-strong));
+      border: 1px solid color-mix(in srgb, var(--accent) 60%, var(--border));
+    }
+
+    .cert-info h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .cert-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Leadership */
+    .leadership-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .leadership-card {
+      padding: 1.3rem;
+    }
+
+    .leadership-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .leadership-card .org {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .leadership-card ul {
+      color: var(--muted);
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.35rem;
     }
 
     .contact-grid {
@@ -555,15 +741,68 @@
       .contact-grid {
         grid-template-columns: 1fr 1.15fr;
       }
+
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (min-width: 980px) {
       .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .skills-grid {
         grid-template-columns: repeat(4, 1fr);
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Print / PDF-friendly overrides */
+    @media print {
+      .site-header, .theme-toggle, .hamburger, .hero-actions, .contact-form, .footer-links a[href="#top"] {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+        color: #141414;
+      }
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .glass {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        background: #fafafa;
+      }
+      .hero {
+        min-height: auto;
+        padding: 1.5rem 0 2rem;
+      }
+      .section {
+        padding: 1.6rem 0;
+      }
+      .about-grid, .contact-grid, .cert-grid, .leadership-grid, .projects-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      a {
+        color: #006b56;
+      }
+      .project-card:hover, .skill-card:hover, .cert-card:hover {
+        transform: none;
       }
     }
   </style>
@@ -577,8 +816,11 @@
         <ul class="nav-links" id="primary-menu">
           <li><a href="#hero">Accueil</a></li>
           <li><a href="#about">A propos</a></li>
+          <li><a href="#education">Formation</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projets</a></li>
           <li><a href="#skills">Competences</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -597,11 +839,13 @@
   <main>
     <section class="hero section" id="hero">
       <div class="container fade-in">
-        <p class="title">Etudiant en cycle d'ingenieur en informatique</p>
-        <h1>Je construis des solutions intelligentes entre IA et developpement web.</h1>
+        <p class="title">AI Research | Computer Vision | Machine Learning Engineering</p>
+        <h1>Je construis des systemes d'IA intelligents, entre recherche et applications concretes.</h1>
         <p>
-          Etudiant en deuxieme annee a l'ENIT, passionne par l'intelligence artificielle, la data et la creation
-          d'applications utiles avec un fort impact terrain.
+          Etudiant ingenieur en derniere annee a l'ENIT, en double diplome de Master en Techniques des Systemes
+          d'Information (IST) avec l'Universite de Tunis El Manar et la TU Braunschweig. Specialise en IA et Machine
+          Learning, avec une experience de recherche en Computer Vision, modeles vision-langage, description
+          automatique d'images de teledetection et systemes intelligents.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">Voir mes projets</a>
@@ -614,8 +858,8 @@
       <div class="container">
         <h2 class="section-title fade-in">A propos</h2>
         <p class="section-subtitle fade-in">
-          Etudiant en deuxieme annee du cycle d'ingenieur en informatique a l'ENIT, passionne par l'IA et les
-          technologies innovantes.
+          Etudiant ingenieur en informatique a l'ENIT, passionne par la recherche en IA et l'ingenierie de systemes
+          de Machine Learning.
         </p>
 
         <div class="about-grid">
@@ -625,20 +869,116 @@
 
           <article class="about-content glass fade-in">
             <p>
-              Bonjour, je suis <strong>Yahya Houimdi</strong>. Motive et curieux, je souhaite acquerir une experience
-              professionnelle concrete en appliquant mes connaissances sur des projets reels afin de renforcer mes
-              competences techniques en intelligence artificielle et en developpement logiciel.
+              Bonjour, je suis <strong>Yahya Houimdi</strong>, etudiant en derniere annee du cycle d'ingenieur en
+              informatique a l'ENIT, en double diplome de Master IST avec l'Universite de Tunis El Manar et la TU
+              Braunschweig. Je me specialise en intelligence artificielle et en Machine Learning, avec une experience
+              concrete en Computer Vision, modeles vision-langage, description automatique d'images de teledetection
+              et conception de systemes intelligents. J'ai egalement de l'experience en reproduction de baselines,
+              experimentation en deep learning, evaluation de modeles et conception de systemes d'IA.
             </p>
             <div class="badge-wrap" aria-label="Competences principales">
               <span class="badge">Python</span>
-              <span class="badge">Java</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">React</span>
-              <span class="badge">Spring Boot</span>
-              <span class="badge">Node.js</span>
-              <span class="badge">SQL</span>
-              <span class="badge">Machine Learning</span>
+              <span class="badge">PyTorch</span>
+              <span class="badge">Computer Vision</span>
+              <span class="badge">NLP / LLMs</span>
+              <span class="badge">Agentic AI</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Apache Kafka</span>
+              <span class="badge">Docker</span>
             </div>
+            <div class="lang-list" aria-label="Langues">
+              <span class="lang-pill"><strong>Arabe</strong> — Langue maternelle</span>
+              <span class="lang-pill"><strong>Anglais</strong> — B2</span>
+              <span class="lang-pill"><strong>Francais</strong> — B2</span>
+              <span class="lang-pill"><strong>Allemand</strong> — A1</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section-title fade-in">Formation</h2>
+        <p class="section-subtitle fade-in">Parcours academique en ingenierie informatique et systemes d'information.</p>
+
+        <div class="edu-list">
+          <article class="edu-item glass fade-in">
+            <div>
+              <h3>Ecole Nationale d'Ingenieurs de Tunis (ENIT)</h3>
+              <p>Diplome d'ingenieur en Informatique — Double diplome : Master en Techniques des Systemes
+                d'Information (IST) avec l'Universite de Tunis El Manar et la TU Braunschweig</p>
+            </div>
+            <span class="edu-date">2024 — Present</span>
+          </article>
+
+          <article class="edu-item glass fade-in">
+            <div>
+              <h3>Institut Preparatoire aux Etudes d'Ingenieurs de Monastir (IPEIM)</h3>
+              <p>Classes preparatoires en Mathematiques et Physique</p>
+            </div>
+            <span class="edu-date">2022 — 2024</span>
+          </article>
+
+          <article class="edu-item glass fade-in">
+            <div>
+              <h3>Baccalaureat, section Mathematiques</h3>
+              <p>Mention Bien</p>
+            </div>
+            <span class="edu-date">2022</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title fade-in">Recherche &amp; Experience professionnelle</h2>
+        <p class="section-subtitle fade-in">
+          Projets de recherche et stages en IA appliquee, vision par ordinateur et systemes distribues.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-item glass fade-in">
+            <div class="role-row">
+              <h3>Description automatique d'images de teledetection (RSIC)</h3>
+              <span class="date">Nov 2025 — Avr 2026</span>
+            </div>
+            <p class="org">PFA / Projet de recherche en IA — ENIT</p>
+            <ul>
+              <li>Recherche sur la description automatique d'images de teledetection avec des backbones Swin
+                Transformer / SwinV2 et des decodeurs bases sur les Transformers.</li>
+              <li>Reproduction de la baseline TSFE et amelioration de 136,7% du score CIDEr grace a un
+                retravail du traitement des features et du pipeline d'entrainement.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item glass fade-in">
+            <div class="role-row">
+              <h3>Surveillance de patients avec IA agentique &amp; Apache Kafka</h3>
+              <span class="date">Juin 2026 — Juil 2026</span>
+            </div>
+            <p class="org">Stage de recherche en IA — Centre de Recherche en Microelectronique et Nanotechnologie (CRMN)</p>
+            <ul>
+              <li>Construction d'un pipeline de surveillance de patients en temps reel avec une architecture
+                orientee evenements pour la detection d'urgences.</li>
+              <li>Conception d'un systeme distribue sur Apache Kafka integrant des agents a base de regles et
+                de raisonnement pour la prise de decision en temps reel.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item glass fade-in">
+            <div class="role-row">
+              <h3>Prediction des prix de l'immobilier en Tunisie</h3>
+              <span class="date">Aout 2026 — present</span>
+            </div>
+            <p class="org">Stage en Machine Learning — SOTUPUB</p>
+            <ul>
+              <li>Construction d'un modele de prediction de prix pour le marche immobilier tunisien a partir de
+                caracteristiques du bien et de la localisation.</li>
+              <li>Pilotage de la collecte de donnees, du preprocessing, du feature engineering et de
+                l'evaluation pour identifier les principaux facteurs de prix.</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -646,22 +986,23 @@
 
     <section class="section" id="projects">
       <div class="container">
-        <h2 class="section-title fade-in">Projets</h2>
+        <h2 class="section-title fade-in">Projets selectionnes</h2>
         <p class="section-subtitle fade-in">
-          Projets academiques et techniques centres sur l'IA appliquee, l'e-learning et l'optimisation de systemes.
+          Projets independants et collectifs centres sur la vision par ordinateur et l'IA a impact social.
         </p>
 
         <div class="projects-grid">
           <article class="project-card glass fade-in">
-            <h3>Description automatique d'images de teledetection (ISIC)</h3>
+            <h3>AI Football Analysis System</h3>
             <p>
-              Conception et entrainement d'un modele d'IA pour generer automatiquement des legendes a partir d'images
-              de teledetection, afin d'ameliorer l'analyse et l'interpretation des donnees geospatiales.
+              Systeme d'analyse automatisee de matchs de football utilisant Python, YOLO et OpenCV pour le
+              traitement de sequences video, avec detection et suivi d'objets pour extraire des donnees
+              structurees sur les joueurs et le match.
             </p>
             <div class="stack" aria-label="Technologies utilisees">
               <span>Python</span>
-              <span>Deep Learning</span>
-              <span>Computer Vision</span>
+              <span>YOLO</span>
+              <span>OpenCV</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/yahyahouimdi" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -670,32 +1011,16 @@
           </article>
 
           <article class="project-card glass fade-in">
-            <h3>Plateforme e-learning EduConnect</h3>
+            <h3>Sightector — Detection de harcelement en ligne</h3>
             <p>
-              Conception d'une plateforme e-learning pour ameliorer l'interaction entre enseignants et etudiants,
-              avec gestion des cours, soumission d'exercices, messagerie et chatbot d'assistance.
+              Systeme base sur le NLP pour detecter le harcelement en ligne et les contenus nuisibles en temps
+              reel, combinant preprocessing de texte, classification et inference dans un deploiement oriente
+              navigateur pour un usage reel. Projet mene avec IEEE ENIT SIGHT Group.
             </p>
             <div class="stack" aria-label="Technologies utilisees">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>SQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/yahyahouimdi" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="#contact">Demander une demo</a>
-            </div>
-          </article>
-
-          <article class="project-card glass fade-in">
-            <h3>Moteur de matching de nom</h3>
-            <p>
-              Developpement d'un moteur Java pour la recherche de noms, la comparaison de listes et la deduplication,
-              avec architecture modulaire et optimisation des performances (memoire et temps d'execution).
-            </p>
-            <div class="stack" aria-label="Technologies utilisees">
-              <span>Java</span>
-              <span>Algorithms</span>
-              <span>Performance</span>
+              <span>NLP</span>
+              <span>Machine Learning</span>
+              <span>Impact social</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/yahyahouimdi" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -710,25 +1035,137 @@
       <div class="container">
         <h2 class="section-title fade-in">Competences</h2>
         <p class="section-subtitle fade-in">
-          Competences cles en developpement, intelligence artificielle et outils de production logicielle.
+          Competences cles en intelligence artificielle, developpement backend et outils de production logicielle.
         </p>
 
-        <div class="skills-grid">
-          <article class="skill-card fade-in"><span class="skill-icon">PY</span><span>Python</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">JA</span><span>Java</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">C++</span><span>C / C++</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">JS</span><span>JavaScript</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">SQL</span><span>SQL</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">TS</span><span>TypeScript</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">RE</span><span>React</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">NG</span><span>Angular</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">SB</span><span>Spring Boot</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">ND</span><span>Node.js</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">ML</span><span>Machine Learning</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">AI</span><span>Deep Learning</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">DB</span><span>MySQL / PostgreSQL / MongoDB</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">GT</span><span>Git / GitHub</span></article>
-          <article class="skill-card fade-in"><span class="skill-icon">DK</span><span>Docker / Postman</span></article>
+        <div class="skills-category fade-in">
+          <h3>IA &amp; Machine Learning</h3>
+          <div class="skills-grid">
+            <article class="skill-card"><span class="skill-icon">DL</span><span>Deep Learning</span></article>
+            <article class="skill-card"><span class="skill-icon">CV</span><span>Computer Vision</span></article>
+            <article class="skill-card"><span class="skill-icon">NLP</span><span>NLP</span></article>
+            <article class="skill-card"><span class="skill-icon">LLM</span><span>LLMs</span></article>
+            <article class="skill-card"><span class="skill-icon">AG</span><span>Agentic AI</span></article>
+            <article class="skill-card"><span class="skill-icon">RAG</span><span>RAG</span></article>
+          </div>
+        </div>
+
+        <div class="skills-category fade-in">
+          <h3>Frameworks &amp; librairies IA</h3>
+          <div class="skills-grid">
+            <article class="skill-card"><span class="skill-icon">PT</span><span>PyTorch</span></article>
+            <article class="skill-card"><span class="skill-icon">TF</span><span>TensorFlow</span></article>
+            <article class="skill-card"><span class="skill-icon">TR</span><span>Transformers</span></article>
+            <article class="skill-card"><span class="skill-icon">SK</span><span>scikit-learn</span></article>
+            <article class="skill-card"><span class="skill-icon">CV2</span><span>OpenCV</span></article>
+            <article class="skill-card"><span class="skill-icon">YO</span><span>YOLO</span></article>
+          </div>
+        </div>
+
+        <div class="skills-category fade-in">
+          <h3>Programmation &amp; donnees</h3>
+          <div class="skills-grid">
+            <article class="skill-card"><span class="skill-icon">PY</span><span>Python</span></article>
+            <article class="skill-card"><span class="skill-icon">SQL</span><span>SQL</span></article>
+            <article class="skill-card"><span class="skill-icon">PD</span><span>Pandas</span></article>
+            <article class="skill-card"><span class="skill-icon">NP</span><span>NumPy</span></article>
+            <article class="skill-card"><span class="skill-icon">PG</span><span>PostgreSQL</span></article>
+          </div>
+        </div>
+
+        <div class="skills-category fade-in">
+          <h3>Backend, systemes &amp; outils</h3>
+          <div class="skills-grid">
+            <article class="skill-card"><span class="skill-icon">FA</span><span>FastAPI</span></article>
+            <article class="skill-card"><span class="skill-icon">API</span><span>RESTful APIs</span></article>
+            <article class="skill-card"><span class="skill-icon">KF</span><span>Apache Kafka</span></article>
+            <article class="skill-card"><span class="skill-icon">DK</span><span>Docker</span></article>
+            <article class="skill-card"><span class="skill-icon">GT</span><span>Git / GitHub</span></article>
+            <article class="skill-card"><span class="skill-icon">LX</span><span>Linux</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <h2 class="section-title fade-in">Certifications &amp; formations</h2>
+        <p class="section-subtitle fade-in">
+          Certifications suivies en intelligence artificielle, machine learning et cloud AI.
+        </p>
+
+        <div class="cert-grid">
+          <article class="cert-card glass fade-in">
+            <div class="cert-photo">ML</div>
+            <div class="cert-info">
+              <h3>Machine Learning Specialization</h3>
+              <p>DeepLearning.AI / Stanford Online</p>
+            </div>
+          </article>
+
+          <article class="cert-card glass fade-in">
+            <div class="cert-photo">DL</div>
+            <div class="cert-info">
+              <h3>Deep Learning Specialization</h3>
+              <p>DeepLearning.AI</p>
+            </div>
+          </article>
+
+          <article class="cert-card glass fade-in">
+            <div class="cert-photo">IBM</div>
+            <div class="cert-info">
+              <h3>IBM AI Engineering</h3>
+              <p>IBM</p>
+            </div>
+          </article>
+
+          <article class="cert-card glass fade-in">
+            <div class="cert-photo">AZ</div>
+            <div class="cert-info">
+              <h3>Azure AI Engineer Associate (AI-102)</h3>
+              <p>Microsoft Certified</p>
+            </div>
+          </article>
+
+          <article class="cert-card glass fade-in">
+            <div class="cert-photo">GG</div>
+            <div class="cert-info">
+              <h3>Google AI Essentials</h3>
+              <p>Google</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container">
+        <h2 class="section-title fade-in">Leadership &amp; impact</h2>
+        <p class="section-subtitle fade-in">Engagement associatif et gestion de projets a impact humanitaire et social.</p>
+
+        <div class="leadership-grid">
+          <article class="leadership-card glass fade-in">
+            <h3>IEEE ENIT SIGHT Group</h3>
+            <p class="org">President / Chair — 2025 – 2026</p>
+            <ul>
+              <li>A mene le groupe IEEE ENIT SIGHT au titre de meilleur groupe SIGHT de l'annee (mondial) et a
+                la 1ere place du congres SDC parmi les groupes nationaux.</li>
+              <li>Direction d'une equipe d'ingenieurs et d'etudiants sur 4+ initiatives technologiques a impact
+                humanitaire, dont Sightector, RemindMeBox, CatchWise et Give for Good.</li>
+              <li>Construction de partenariats externes pour etendre la portee du groupe.</li>
+            </ul>
+          </article>
+
+          <article class="leadership-card glass fade-in">
+            <h3>Injaz — Projet Posidonia</h3>
+            <p class="org">Project Lead / Team Leader — 2025 – 2026</p>
+            <ul>
+              <li>Direction d'une equipe de 25 personnes pour transformer les dechets de Posidonia oceanica en
+                materiau isolant durable, de la recherche initiale au prototype fonctionnel.</li>
+              <li>Gestion complete du projet : strategie technique, experimentation, organisation d'equipe,
+                suivi d'avancement et livraison finale.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -737,7 +1174,8 @@
       <div class="container">
         <h2 class="section-title fade-in">Contact</h2>
         <p class="section-subtitle fade-in">
-          Vous pouvez me contacter pour un stage, une collaboration ou une opportunite sur des projets IA et web.
+          Vous pouvez me contacter pour un stage, une collaboration ou une opportunite sur des projets IA et
+          recherche.
         </p>
 
         <div class="contact-grid">
@@ -745,9 +1183,9 @@
             <h3>Coordonnees</h3>
             <ul class="contact-list">
               <li>Email : <a href="mailto:yahya.houimdi@etudiant-enit.utm.tn">yahya.houimdi@etudiant-enit.utm.tn</a></li>
-              <li>Telephone : <a href="tel:+21658625730">(+216) 58625730</a></li>
+              <li>Telephone : <a href="tel:+21658625730">(+216) 58 625 730</a></li>
               <li>Localisation : Sousse, Tunisie</li>
-              <li>LinkedIn : <a href="https://www.linkedin.com/in/yahya-houimdi-163492338/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yahya-houimdi-163492338</a></li>
+              <li>LinkedIn : <a href="https://www.linkedin.com/in/yahya-houimdi-163492338/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yahya-houimdi</a></li>
               <li>GitHub : <a href="https://github.com/yahyahouimdi" target="_blank" rel="noopener noreferrer">github.com/yahyahouimdi</a></li>
             </ul>
           </article>
