@@ -1,0 +1,48 @@
+<a class="back-to-top" href="#top" data-back-to-top aria-label="Back to top">
+  <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+</a>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 14;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    color: var(--accent);
+    box-shadow: var(--shadow-1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem);
+    transition: opacity var(--transition-1), transform var(--transition-1);
+  }
+
+  .back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover,
+  .back-to-top:focus-visible {
+    background: var(--accent-soft);
+    border-color: var(--border-strong);
+  }
+</style>
+
+<script>
+  const backToTop = document.querySelector<HTMLElement>("[data-back-to-top]");
+
+  const syncVisibility = () => {
+    backToTop?.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.7);
+  };
+
+  window.addEventListener("scroll", syncVisibility, { passive: true });
+  syncVisibility();
+</script>
