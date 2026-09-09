@@ -2,13 +2,13 @@
   "name": "Yahya Houimdi Portfolio",
   "short_name": "Yahya Houimdi",
   "description": "AI research and computer vision portfolio of Yahya Houimdi.",
-  "start_url": "/",
+  "start_url": "/portfolio/",
   "display": "standalone",
   "background_color": "#070b16",
   "theme_color": "#070b16",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/portfolio/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
