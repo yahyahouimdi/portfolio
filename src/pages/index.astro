@@ -8,11 +8,13 @@ import Education from "../components/Education.astro";
 import Work from "../components/Work.astro";
 import Certifications from "../components/Certifications.astro";
 import Contact from "../components/Contact.astro";
+import ScrollProgress from "../components/ScrollProgress.astro";
 import { site } from "../config.ts";
 ---
 
 <Layout title={site.title}>
   <main class="page-shell" id="top">
+    <ScrollProgress />
     <div class="bg-glow bg-glow-left" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-right" aria-hidden="true"></div>
     <Profile />

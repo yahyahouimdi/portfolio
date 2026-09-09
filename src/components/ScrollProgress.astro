@@ -1,0 +1,32 @@
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+
+<style>
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 20;
+    height: 3px;
+    width: 0;
+    background: var(--text-gradient-yellow);
+    transform-origin: left;
+    transition: width 120ms linear;
+  }
+</style>
+
+<script>
+  const progressBar = document.querySelector<HTMLElement>("[data-scroll-progress]");
+
+  const updateProgress = () => {
+    if (!progressBar) {
+      return;
+    }
+
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+    progressBar.style.width = `${Math.min(progress, 100)}%`;
+  };
+
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
+</script>
