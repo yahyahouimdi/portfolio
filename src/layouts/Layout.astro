@@ -48,6 +48,7 @@ const { title } = Astro.props;
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <button
       class="theme-toggle"
       type="button"
@@ -372,6 +373,24 @@ const { title } = Astro.props;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 1rem;
+    z-index: 30;
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: var(--eerie-black-1);
+    font-weight: var(--fw-700);
+    transform: translateY(-160%);
+    transition: transform var(--transition-1);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
   }
 
   .theme-toggle {
