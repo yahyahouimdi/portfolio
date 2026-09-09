@@ -394,6 +394,17 @@ const { title } = Astro.props;
     transform: translateY(0);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
   .theme-toggle {
     position: fixed;
     top: 20px;
