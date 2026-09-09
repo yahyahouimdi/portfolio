@@ -1,0 +1,105 @@
+---
+import { sectionContent, skills } from "../config.ts";
+
+const skillGroups = Object.entries(skills).map(([category, items]) => ({
+  category,
+  items,
+  headingId: `${category.toLowerCase().replace(/\s+/g, "-")}-heading`,
+}));
+---
+
+<section class="skills section-card" id="skills">
+  <header class="section-heading">
+    <div>
+      <h2 class="article-title">{sectionContent.skills.heading}</h2>
+    </div>
+  </header>
+
+  <div class="skills-groups">
+    {
+      skillGroups.map(({ category, items, headingId }) => (
+        <section class="skills-group" aria-labelledby={headingId}>
+          <h3 class="h4 skills-group-title" id={headingId}>
+            {category}
+          </h3>
+          <ul class="skills-list">
+            {items.map((item) => (
+              <li class="skill-chip">{item}</li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skills {
+    display: grid;
+    gap: clamp(1.2rem, 2vw, 1.8rem);
+  }
+
+  .skills-groups {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .skills-group {
+    background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.95rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+
+  .skills-group-title {
+    color: var(--text-primary);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    line-height: 1.35;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .skill-chip {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid
+      color-mix(in srgb, var(--accent) 24%, var(--border-subtle));
+    border-radius: var(--radius-pill);
+    padding: 0.3rem 0.62rem;
+    font-size: var(--fs-8);
+    font-weight: var(--fw-500);
+    line-height: 1.4;
+    transition:
+      background-color var(--transition-1),
+      border-color var(--transition-1),
+      color var(--transition-1);
+  }
+
+  .skill-chip:hover {
+    background: color-mix(in srgb, var(--accent-soft) 55%, var(--bg-elevated));
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+
+  @media (min-width: 768px) {
+    .skills-groups {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

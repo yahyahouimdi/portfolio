@@ -1,0 +1,174 @@
+---
+import { navbar } from "../config.ts";
+---
+
+<nav class="navbar" aria-label="Primary section navigation">
+  <ul class="navbar-list">
+    {
+      navbar.map((item) => (
+        <li class="navbar-item">
+          <a href={`#${item}`} class="navbar-link" data-nav-link data-target={item}>
+            {item.replaceAll("-", " ")}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0.9rem;
+    z-index: 12;
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    background: var(--nav-bg);
+    box-shadow: var(--shadow-1);
+    padding: 0.55rem;
+  }
+
+  .navbar-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navbar-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbar-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.55rem 0.92rem;
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-600);
+    text-transform: capitalize;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    transition:
+      color var(--transition-1),
+      background-color var(--transition-1),
+      border-color var(--transition-1),
+      transform var(--transition-1);
+  }
+
+  .navbar-link:hover,
+  .navbar-link:focus-visible {
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+    background: var(--bg-elevated);
+  }
+
+  .navbar-link.active {
+    color: var(--accent);
+    border-color: var(--border-strong);
+    background: var(--accent-soft);
+  }
+
+  @media (min-width: 1024px) {
+    .navbar {
+      top: 1.1rem;
+    }
+
+    .navbar-list {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+<script>
+  const navigationLinks = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]")
+  );
+  const sections = navigationLinks
+    .map((link) => {
+      const targetId = link.dataset.target;
+      if (!targetId) {
+        return null;
+      }
+      const section = document.getElementById(targetId);
+      if (!section) {
+        return null;
+      }
+      return { link, section, id: targetId };
+    })
+    .filter(
+      (item): item is { link: HTMLAnchorElement; section: HTMLElement; id: string } =>
+        item !== null
+    );
+
+  const setActiveLink = (sectionId: string) => {
+    navigationLinks.forEach((link) => {
+      const isActive = link.dataset.target === sectionId;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const getActiveSectionId = (): string | null => {
+    if (sections.length === 0) {
+      return null;
+    }
+    const focusY = window.innerHeight * 0.35;
+    let nearest: { id: string; distance: number } | null = null;
+    for (const item of sections) {
+      const rect = item.section.getBoundingClientRect();
+      const withinViewport = rect.top <= focusY && rect.bottom >= focusY;
+      if (withinViewport) {
+        return item.id;
+      }
+      const distance = Math.abs(rect.top - focusY);
+      if (!nearest || distance < nearest.distance) {
+        nearest = { id: item.id, distance };
+      }
+    }
+    return nearest?.id ?? sections[0]?.id ?? null;
+  };
+
+  const syncActiveSection = () => {
+    const activeId = getActiveSectionId();
+    if (!activeId) {
+      return;
+    }
+    setActiveLink(activeId);
+  };
+
+  const scrollHandler = () => {
+    syncActiveSection();
+  };
+
+  window.addEventListener("scroll", scrollHandler, { passive: true });
+  window.addEventListener("resize", scrollHandler);
+
+  navigationLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const target = link.dataset.target;
+      if (!target) {
+        return;
+      }
+      setActiveLink(target);
+    });
+  });
+
+  if (sections.length > 0) {
+    const activeFromHash = window.location.hash.replace("#", "");
+    if (activeFromHash && sections.some((item) => item.id === activeFromHash)) {
+      setActiveLink(activeFromHash);
+    } else {
+      syncActiveSection();
+    }
+  }
+</script>

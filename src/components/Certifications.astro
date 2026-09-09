@@ -1,0 +1,190 @@
+---
+import { certifications, sectionContent } from "../config.ts";
+---
+
+<section class="certifications section-card" id="certifications">
+  <header class="section-heading">
+    <div>
+      <h2 class="article-title">{sectionContent.certifications.heading}</h2>
+    </div>
+
+    <div class="carousel-controls" aria-label="Certification navigation">
+      <button type="button" class="carousel-button" data-cert-prev aria-label="Show previous certifications">
+        <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+      </button>
+      <button type="button" class="carousel-button" data-cert-next aria-label="Show next certifications">
+        <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
+  </header>
+
+  <div class="certification-viewport" data-cert-viewport tabindex="0" aria-label="Certifications">
+    <ul class="certification-list">
+      {
+        certifications.map((certificate) => (
+          <li class="certification-item">
+            <a
+              class="certification-card"
+              href={certificate.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${certificate.name} certificate PDF`}
+            >
+              <figure class="certificate-image">
+                <img src={certificate.image} alt={`${certificate.name} certificate`} loading="lazy" />
+              </figure>
+              <div class="certificate-info">
+                <h3>{certificate.name}</h3>
+                <p>{certificate.issuer}</p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .certifications {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .section-heading {
+    align-items: center;
+  }
+
+  .carousel-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    transition: transform var(--transition-1), border-color var(--transition-1), color var(--transition-1);
+  }
+
+  .carousel-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    color: var(--accent);
+  }
+
+  .carousel-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .certification-viewport {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+    outline: none;
+  }
+
+  .certification-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 2.25rem) / 4);
+    gap: 0.75rem;
+  }
+
+  .certification-card {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
+    color: var(--text-primary);
+    transition: transform var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
+  }
+
+  .certification-card:hover,
+  .certification-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-1);
+  }
+
+  .certificate-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-muted);
+  }
+
+  .certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .certificate-info {
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.8rem;
+  }
+
+  .certificate-info h3 {
+    font-size: var(--fs-7);
+    line-height: 1.35;
+  }
+
+  .certificate-info p {
+    color: var(--text-muted);
+    font-size: var(--fs-8);
+  }
+
+  @media (max-width: 767px) {
+    .certification-list {
+      grid-auto-columns: calc((100% - 0.75rem) / 2);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .certification-list {
+      grid-auto-columns: 84%;
+    }
+  }
+</style>
+
+<script>
+  const certificationViewport = document.querySelector<HTMLElement>("[data-cert-viewport]");
+  const previousButton = document.querySelector<HTMLButtonElement>("[data-cert-prev]");
+  const nextButton = document.querySelector<HTMLButtonElement>("[data-cert-next]");
+
+  if (certificationViewport && previousButton && nextButton) {
+    const updateButtons = () => {
+      const maxScroll = certificationViewport.scrollWidth - certificationViewport.clientWidth;
+      previousButton.disabled = certificationViewport.scrollLeft <= 2;
+      nextButton.disabled = certificationViewport.scrollLeft >= maxScroll - 2;
+    };
+
+    const scrollByCards = (direction: number) => {
+      const card = certificationViewport.querySelector<HTMLElement>(".certification-card");
+      if (!card) return;
+      const gap = Number.parseFloat(getComputedStyle(card.parentElement!).columnGap) || 12;
+      certificationViewport.scrollBy({
+        left: direction * (card.offsetWidth + gap),
+        behavior: "smooth",
+      });
+    };
+
+    previousButton.addEventListener("click", () => scrollByCards(-1));
+    nextButton.addEventListener("click", () => scrollByCards(1));
+    certificationViewport.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons);
+    updateButtons();
+  }
+</script>

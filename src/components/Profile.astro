@@ -1,0 +1,285 @@
+---
+import { profile, sectionContent } from "../config";
+---
+
+<aside class="profile-card section-card" aria-label="Profile">
+  <div class="profile-header">
+    <figure class="avatar-box">
+      <img
+        src={profile.pic}
+        alt={`${profile.name} avatar`}
+        width="160"
+        height="160"
+      />
+    </figure>
+
+    <div class="info-content">
+      <h1 class="name" title={profile.name}>{profile.name}</h1>
+      <p class="title">{profile.title}</p>
+    </div>
+  </div>
+
+  <p class="intro">{sectionContent.profile.intro}</p>
+
+  <div class="profile-content">
+    <div class="separator"></div>
+
+    <ul class="contacts-list">
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="mail-outline"></ion-icon>
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Email</p>
+          <a href={`mailto:${profile.email}`} class="contact-link"
+            >{profile.email}</a
+          >
+        </div>
+      </li>
+
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Location</p>
+
+          <address>{profile.location}</address>
+        </div>
+      </li>
+    </ul>
+
+    <div class="separator"></div>
+
+    <div class="cta-group">
+      <a class="cta cta-secondary" href="#work">
+        {sectionContent.profile.viewWorkLabel}
+      </a>
+    </div>
+
+    <ul class="social-list">
+      {
+        Object.entries(profile.social).map(([platform, link]) => (
+          <li class="social-item">
+            <a
+              href={link}
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${profile.name} on ${platform}`}
+              title={platform}
+            >
+              <ion-icon name={`logo-${platform}`} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>
+
+<style>
+  .profile-card {
+    display: grid;
+    gap: var(--space-5);
+    position: relative;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .avatar-box {
+    width: 82px;
+    height: 82px;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-1);
+    flex-shrink: 0;
+  }
+
+  .avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .availability-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--success) 20%, transparent);
+  }
+
+  .name {
+    font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+  }
+
+  .title {
+    color: var(--text-secondary);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+  }
+
+  .intro {
+    color: var(--text-secondary);
+    font-size: var(--fs-6);
+    line-height: 1.7;
+  }
+
+  .profile-content {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background: var(--border-subtle);
+  }
+
+  .contacts-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .contact-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .contact-title {
+    color: var(--text-muted);
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-info :is(.contact-link, address) {
+    color: var(--text-primary);
+    font-size: var(--fs-7);
+    word-break: break-word;
+  }
+
+  .contact-info address {
+    font-style: normal;
+  }
+
+  .cta-group {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-pill);
+    padding: 0.65rem 1rem;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-600);
+    border: 1px solid var(--border-subtle);
+    transition:
+      transform var(--transition-1),
+      background-color var(--transition-1),
+      border-color var(--transition-1),
+      color var(--transition-1);
+  }
+
+  .cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-secondary {
+    color: var(--text-secondary);
+    background: var(--bg-elevated);
+  }
+
+  .social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-elevated);
+    transition:
+      transform var(--transition-1),
+      color var(--transition-1),
+      border-color var(--transition-1),
+      background-color var(--transition-1);
+  }
+
+  .social-link:hover {
+    transform: translateY(-2px);
+    color: var(--accent);
+    border-color: var(--border-strong);
+    background: var(--accent-soft);
+  }
+
+  @media (min-width: 580px) {
+    .avatar-box {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .contacts-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .profile-card {
+      position: sticky;
+      top: 1.3rem;
+    }
+
+    .profile-header {
+      display: grid;
+      justify-items: center;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    .avatar-box {
+      width: 118px;
+      height: 118px;
+    }
+
+  }
+</style>

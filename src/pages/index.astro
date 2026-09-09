@@ -1,0 +1,147 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Profile from "../components/Profile.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Nav from "../components/Nav.astro";
+import Education from "../components/Education.astro";
+import Work from "../components/Work.astro";
+import Certifications from "../components/Certifications.astro";
+import Contact from "../components/Contact.astro";
+import { site } from "../config.ts";
+---
+
+<Layout title={site.title}>
+  <main class="page-shell" id="top">
+    <div class="bg-glow bg-glow-left" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-right" aria-hidden="true"></div>
+    <Profile />
+    <div class="main-content" id="content">
+      <Nav />
+      <About />
+      <Education />
+      <Skills />
+      <Work />
+      <Certifications />
+      <Contact />
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  .page-shell {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 2rem) 4rem;
+    display: grid;
+    gap: clamp(1.1rem, 2vw, 1.5rem);
+  }
+
+  .main-content {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .bg-glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .bg-glow-left {
+    left: -120px;
+    top: 50px;
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  .bg-glow-right {
+    right: -140px;
+    bottom: 40px;
+    background: color-mix(in srgb, var(--accent-strong) 40%, transparent);
+  }
+
+  .section-card + .section-card {
+    margin-top: 0;
+  }
+
+  .icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--accent);
+    box-shadow: var(--shadow-1);
+    flex-shrink: 0;
+  }
+
+  .icon-box ion-icon {
+    font-size: 1.15rem;
+    --ionicon-stroke-width: 34px;
+  }
+
+  .article-title {
+    font-size: var(--fs-2);
+    margin: 0;
+    position: relative;
+    padding-bottom: 0.7rem;
+    font-weight: var(--fw-700);
+    letter-spacing: -0.02em;
+  }
+
+  .article-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--text-gradient-yellow);
+  }
+
+  @media (min-width: 1024px) {
+    .page-shell {
+      grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+      align-items: start;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1450px) {
+    .page-shell {
+      max-width: 1400px;
+      grid-template-columns: minmax(320px, 375px) minmax(0, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1450px) {
+    body::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      border: 4px solid transparent;
+      background: var(--scrollbar-thumb-bg);
+      border-radius: 20px;
+      background-clip: content-box;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background: var(--scrollbar-thumb-bg-hover);
+    }
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+import { about, sectionContent } from "../config.ts";
+---
+
+<section class="about section-card" id="about">
+  <header class="section-heading">
+    <div>
+      <h2 class="article-title">{sectionContent.about.heading}</h2>
+    </div>
+  </header>
+
+  <section class="about-text">
+    {about.descriptions.map((description) => <p set:html={description} />)}
+  </section>
+
+  <section class="service" aria-labelledby="service-heading">
+    <h3 class="h3 service-title" id="service-heading">
+      {sectionContent.about.strengthsHeading}
+    </h3>
+
+    <ul class="service-list">
+      {
+        Object.entries(about.majors).map(([major, detail]) => (
+          <li class="service-item">
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">{major}</h4>
+              <p class="service-item-text">{detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    gap: clamp(1.2rem, 2vw, 1.8rem);
+  }
+
+  .section-heading {
+    margin-bottom: 0.3rem;
+  }
+
+  .about-text {
+    color: var(--text-secondary);
+    font-size: var(--fs-6);
+    line-height: 1.75;
+    display: grid;
+    gap: 0.95rem;
+  }
+
+  .about-text strong {
+    color: var(--text-primary);
+  }
+
+  .service {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .service-title {
+    font-size: var(--fs-3);
+    font-weight: var(--fw-700);
+    letter-spacing: -0.02em;
+  }
+
+  .service-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .service-item {
+    position: relative;
+    padding-block: 1.05rem;
+    padding-inline: 1.2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: color-mix(in srgb, var(--bg-elevated) 75%, transparent);
+    transition:
+      transform var(--transition-1),
+      border-color var(--transition-1),
+      box-shadow var(--transition-1);
+  }
+
+  .service-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-1);
+  }
+
+  .service-item-title {
+    margin-bottom: 0.35rem;
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+  }
+
+  .service-item-text {
+    color: var(--text-secondary);
+    font-size: var(--fs-6);
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    .service-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about {
+      gap: 1.8rem;
+    }
+  }
+</style>

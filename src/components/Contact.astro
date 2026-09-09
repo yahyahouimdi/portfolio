@@ -1,0 +1,77 @@
+---
+import { profile, sectionContent } from "../config.ts";
+---
+
+<section class="contact section-card" id="contact">
+  <header class="section-heading">
+    <div>
+      <h2 class="article-title">{sectionContent.contact.heading}</h2>
+    </div>
+  </header>
+
+  <p class="contact-text">{sectionContent.contact.text}</p>
+
+  <div class="contact-links">
+    <a class="contact-link" href={`mailto:${profile.email}`}>
+      <span class="contact-label">Email</span>
+      <span>{profile.email}</span>
+    </a>
+    <a class="contact-link" href={`tel:${profile.phone}`}>
+      <span class="contact-label">Phone</span>
+      <span>{profile.phone}</span>
+    </a>
+    <a class="contact-link" href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">
+      <span class="contact-label">LinkedIn</span>
+      <span>linkedin.com/in/yahya-houimdi</span>
+    </a>
+    <a class="contact-link" href={profile.social.github} target="_blank" rel="noopener noreferrer">
+      <span class="contact-label">GitHub</span>
+      <span>github.com/yahyahouimdi</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-text {
+    color: var(--text-secondary);
+    font-size: var(--fs-6);
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--bg-elevated) 75%, transparent);
+    color: var(--text-primary);
+    font-size: var(--fs-7);
+    overflow-wrap: anywhere;
+    transition: border-color var(--transition-1), transform var(--transition-1);
+  }
+
+  .contact-link:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .contact-label {
+    color: var(--accent);
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>

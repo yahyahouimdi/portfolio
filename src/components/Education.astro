@@ -1,0 +1,105 @@
+---
+import { education, sectionContent } from "../config.ts";
+---
+
+<section class="resume section-card" id="education">
+  <header class="section-heading">
+    <div>
+      <h2 class="article-title">{sectionContent.education.heading}</h2>
+    </div>
+  </header>
+
+  <ol class="timeline-list">
+    {
+      education.map((item) => (
+        <li class="timeline-item">
+          <div class="timeline-item-header">
+            <h3 class="h4 title">{item.name}</h3>
+            <span class="duration">{item.duration}</span>
+          </div>
+          <p class="timeline-text">{item.college}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .resume {
+    display: grid;
+    gap: clamp(1.2rem, 2vw, 1.8rem);
+  }
+
+  .timeline-list {
+    margin-left: 2rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .timeline-item:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .title {
+    font-size: var(--fs-5);
+    line-height: 1.35;
+    font-weight: var(--fw-600);
+    color: var(--text-primary);
+  }
+
+  .duration {
+    color: var(--text-muted);
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .timeline-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    left: -1.12rem;
+    width: 1px;
+    height: calc(100% + 1.35rem);
+    background: var(--border-subtle);
+  }
+
+  .timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 0.26rem;
+    left: -1.35rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+
+  .timeline-text {
+    color: var(--text-secondary);
+    font-size: var(--fs-7);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 579px) {
+    .timeline-item-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+  }
+</style>
