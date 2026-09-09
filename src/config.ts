@@ -272,7 +272,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "Humanitarian Technology Initiatives",
-        pic: publicAsset("/images/associative-work/IEEE_SIGHT.png"),
+        pic: publicAsset("/images/associative-work/initiatives.jpg"),
         link: "https://github.com/yahyahouimdi",
         description:
           "Directed technology-driven humanitarian initiatives including Sightector, RemindMeBox, CatchWise, and Give for Good through IEEE ENIT SIGHT.",
