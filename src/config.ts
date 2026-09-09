@@ -50,7 +50,7 @@ export const sectionContent = {
 
 export const profile = {
   name: "Yahya Houimdi",
-  pic: publicAsset("/images/profile.jpg"),
+  pic: publicAsset("/images/profile.png"),
   title: "AI Researcher | Computer Vision | Machine Learning Engineering",
   email: "yahya.houimdi@etudiant-enit.utm.tn",
   phone: "+216 58 625 730",
@@ -125,34 +125,46 @@ export const skills: Record<string, string[]> = {
 
 export const certifications = [
   {
-    name: "Machine Learning Specialization",
-    issuer: "DeepLearning.AI / Stanford Online",
-    image: publicAsset("/images/certifications/machine-learning-specialization.png"),
-    pdf: publicAsset("/certificates/machine-learning-specialization.pdf"),
-  },
-  {
-    name: "Deep Learning Specialization",
-    issuer: "DeepLearning.AI",
-    image: publicAsset("/images/certifications/deep-learning-specialization.png"),
-    pdf: publicAsset("/certificates/deep-learning-specialization.pdf"),
-  },
-  {
-    name: "IBM AI Engineering Professional Certificate",
-    issuer: "IBM",
-    image: publicAsset("/images/certifications/ibm-ai-engineering.png"),
-    pdf: publicAsset("/certificates/ibm-ai-engineering.pdf"),
-  },
-  {
-    name: "Azure AI Engineer Associate (AI-102)",
+    name: "Azure AI Engineer Associate",
     issuer: "Microsoft",
-    image: publicAsset("/images/certifications/azure-ai-engineer-ai-102.png"),
-    pdf: publicAsset("/certificates/azure-ai-engineer-ai-102.pdf"),
+    image: publicAsset("/images/certifications/ai_azure_associate/ai_azure_associate-1.png"),
+    pdf: publicAsset("/certificates/ai_azure_associate.pdf"),
   },
   {
     name: "Google AI Essentials",
     issuer: "Google",
-    image: publicAsset("/images/certifications/google-ai-essentials.png"),
-    pdf: publicAsset("/certificates/google-ai-essentials.pdf"),
+    image: publicAsset("/images/certifications/google_ai_essentials/google_ai_essentials-1.png"),
+    pdf: publicAsset("/certificates/google_ai_essentials.pdf"),
+  },
+  {
+    name: "Introduction to AI",
+    issuer: "Online Certification",
+    image: publicAsset("/images/certifications/introduction_to_ai/introduction_to_ai-1.png"),
+    pdf: publicAsset("/certificates/introduction_to_ai.pdf"),
+  },
+  {
+    name: "Discover the Art of Prompting",
+    issuer: "Online Certification",
+    image: publicAsset("/images/certifications/Discover_the_Art_of_Prompting/Discover_the_Art_of_Prompting-1.png"),
+    pdf: publicAsset("/certificates/Discover_the_Art_of_Prompting.pdf"),
+  },
+  {
+    name: "Maximize Productivity with AI",
+    issuer: "Online Certification",
+    image: publicAsset("/images/certifications/maximize_productivity/maximize_productivity-1.png"),
+    pdf: publicAsset("/certificates/maximize_productivity.pdf"),
+  },
+  {
+    name: "Stay Ahead of AI Curves",
+    issuer: "Online Certification",
+    image: publicAsset("/images/certifications/stay_ahead_ai_curves/stay_ahead_ai_curves-1.png"),
+    pdf: publicAsset("/certificates/stay_ahead_ai_curves.pdf"),
+  },
+  {
+    name: "Use AI Responsibly",
+    issuer: "Online Certification",
+    image: publicAsset("/images/certifications/use_ai_responsably/use_ai_responsably-1.png"),
+    pdf: publicAsset("/certificates/use_ai_responsably.pdf"),
   },
 ];
 
@@ -199,7 +211,7 @@ export const work: Record<string, WorkCategory> = {
     items: [
       {
         name: "Remote Sensing Image Captioning",
-        pic: publicAsset("/images/projects/remote-sensing-captioning.png"),
+        pic: publicAsset("/images/projects/RSIC.jpeg"),
         link: "https://github.com/yahyahouimdi/RSIC_remote_sensing_image_captioning",
         description:
           "Transformer-based vision-language research for generating natural-language descriptions of satellite imagery. Reproduced the TSFE baseline, re-engineered the visual encoder with SwinV2-Base, designed a six-layer Transformer decoder, and achieved a 136.7% CIDEr improvement.",
@@ -207,7 +219,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "Patient Monitoring with Agentic AI",
-        pic: publicAsset("/images/projects/patient-monitoring.png"),
+        pic: publicAsset("/images/projects/kafka%20project.jpeg"),
         link: "https://github.com/yahyahouimdi/patient-monitoring-kafka-agents",
         description:
           "Event-driven intelligent monitoring architecture combining real-time rule-based detection with reasoning-capable AI agents. The system unifies patient, wearable, and smart-home information into a common decision pipeline.",
@@ -215,7 +227,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "Tunisian Real Estate Price Prediction",
-        pic: publicAsset("/images/projects/real-estate-prediction.png"),
+        pic: publicAsset("/images/projects/Price%20Prediction.jpeg"),
         link: "https://github.com/yahyahouimdi/Tunisian-real-estate-price-prediction-model",
         description:
           "End-to-end machine-learning pipeline for modeling Tunisian property prices. Built a market dataset, performed exploratory analysis and feature engineering, compared predictive approaches, and investigated geographic and property-level price drivers.",
@@ -223,7 +235,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "AI Football Analysis System",
-        pic: publicAsset("/images/projects/football-analysis.png"),
+        pic: publicAsset("/images/projects/football%20analysis.jpeg"),
         link: "https://github.com/yahyahouimdi/AI-Football-Analysis-System-",
         description:
           "Computer-vision pipeline for extracting structured information from football footage using YOLO and OpenCV. Explores player and ball detection, multi-frame tracking, occlusion, small-object detection, camera movement, and perspective changes.",
@@ -231,7 +243,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "Sightector - Online Harassment Detection",
-        pic: publicAsset("/images/projects/sightector.png"),
+        pic: publicAsset("/images/projects/sightector.jpeg"),
         link: "https://github.com/yahyahouimdi/sightector",
         description:
           "NLP-based system for detecting harassment and harmful textual content in online environments. Built an end-to-end text-classification pipeline and deployed real-time inference through a Chrome extension.",
@@ -244,7 +256,7 @@ export const work: Record<string, WorkCategory> = {
     items: [
       {
         name: "IEEE ENIT SIGHT Group",
-        pic: publicAsset("/images/associative-work/ieee-enit-sight.png"),
+        pic: publicAsset("/images/associative-work/IEEE_SIGHT.png"),
         link: "https://github.com/yahyahouimdi",
         description:
           "President and Chair from 2025 to 2026. Led the group to Best SIGHT Group of the Year globally and first place at the SDC Congress, while directing four or more technology-driven humanitarian initiatives and developing external partnerships.",
@@ -260,7 +272,7 @@ export const work: Record<string, WorkCategory> = {
       },
       {
         name: "Humanitarian Technology Initiatives",
-        pic: publicAsset("/images/associative-work/humanitarian-initiatives.png"),
+        pic: publicAsset("/images/associative-work/IEEE_SIGHT.png"),
         link: "https://github.com/yahyahouimdi",
         description:
           "Directed technology-driven humanitarian initiatives including Sightector, RemindMeBox, CatchWise, and Give for Good through IEEE ENIT SIGHT.",
