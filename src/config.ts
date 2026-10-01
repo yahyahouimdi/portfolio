@@ -125,6 +125,12 @@ export const skills: Record<string, string[]> = {
 
 export const certifications = [
   {
+    name: "Supervised Machine Learning: Regression and Classification",
+    issuer: "DeepLearning.AI & Stanford Online",
+    image: publicAsset("/images/certifications/Regression_and_classification/Regression_and_classification-1.png"),
+    pdf: publicAsset("/certificates/Regression_and_classification.pdf"),
+  },
+  {
     name: "Azure AI Engineer Associate",
     issuer: "Microsoft",
     image: publicAsset("/images/certifications/ai_azure_associate/ai_azure_associate-1.png"),
@@ -173,7 +179,13 @@ export const education = [
     name: "Engineering Degree in Computer Science",
     duration: "2024 - Present",
     college:
-      "National Engineering School of Tunis (ENIT) - Double-degree Master's Degree in Information System Techniques with University of Tunis El Manar and TU Braunschweig",
+      "National Engineering School of Tunis (ENIT)",
+  },
+  {
+    name: "Double-degree Master's Degree in Information System Techniques ",
+    duration: "2026 - Present",
+    college:
+      "National Engineering School of Tunis (ENIT) with University of Tunis El Manar and TU Braunschweig",
   },
   {
     name: "Preparatory Studies in Mathematics and Physics",
